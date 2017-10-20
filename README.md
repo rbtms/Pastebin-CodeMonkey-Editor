@@ -5,7 +5,7 @@ CodeMonkey edifor for Pastebin
 
 - Syntax highlighting
 - Wide number of themes and available languages
-- Beautifier
+- Beautifier (http://jsbeautifier.org/)
 - Javascript linter
 - Word highlighter on selection
 - Easy configuration
