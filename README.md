@@ -9,7 +9,7 @@ CodeMonkey edifor for Pastebin
 - Javascript linter
 - Word highlighter on selection
 - Easy configuration
-<br>br>
+<br><br>
 # Download:
 
 - Firefox: https://addons.mozilla.org/en-US/firefox/addon/pastebin-codemirror-editor/
