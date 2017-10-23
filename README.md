@@ -1,6 +1,9 @@
 # Description:
 CodeMonkey edifor for Pastebin
 <br><br>
+
+![pastebin_editor_codemirror_chrome](https://user-images.githubusercontent.com/14959143/31885539-25c19730-b7f1-11e7-9390-208424e1bbb0.png)
+
 # Features:
 
 - Syntax highlighting
