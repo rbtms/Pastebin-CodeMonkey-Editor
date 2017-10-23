@@ -3,6 +3,7 @@ CodeMonkey edifor for Pastebin
 <br><br>
 
 ![pastebin_editor_codemirror_chrome](https://user-images.githubusercontent.com/14959143/31885539-25c19730-b7f1-11e7-9390-208424e1bbb0.png)
+![pastebin_editor_codemirror](https://user-images.githubusercontent.com/14959143/31885632-75cf2a62-b7f1-11e7-8a91-75e544689e15.png)
 
 # Features:
 
