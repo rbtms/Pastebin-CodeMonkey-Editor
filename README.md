@@ -1,11 +1,14 @@
 # Description:
 CodeMonkey edifor for Pastebin
 <br><br>
+
+![screenshot](https://user-images.githubusercontent.com/14959143/31885946-9a089d4a-b7f2-11e7-9c09-5c231f7b645d.png)
+
 # Features:
 
 - Syntax highlighting
 - Wide number of themes and available languages
-- Beautifier
+- Beautifier (http://jsbeautifier.org/)
 - Javascript linter
 - Word highlighter on selection
 - Easy configuration
