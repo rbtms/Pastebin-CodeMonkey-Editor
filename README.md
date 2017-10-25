@@ -11,12 +11,13 @@ CodeMonkey edifor for Pastebin
 - Beautifier (http://jsbeautifier.org/)
 - Javascript linter
 - Word highlighter on selection
+- Automatic language load on clone
 - Easy configuration
 <br><br>
-# Download:
+# Latest version:
 
 - Firefox: https://addons.mozilla.org/en-US/firefox/addon/pastebin-codemirror-editor/
-- Chrome:  https://git.io/vdFmm
+- Chrome:  https://git.io/vFvB2
 
 To install it just drag it into the browser.
 <br><br>
