@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                line-height: 23px;
+                text-height: -10px;
+            }
+            
+            h2 { text-decoration: underline; }
+            
+            select, input {
+                position: absolute;
+                left:     130px;
+            }
+            
+            select { width: 130px;      }
+            input  { padding-left: 3px; }
+            
+            button {
+                position: absolute;
+                
+                left: 295px;
+                
+                width:  90px;
+                height: 30px;
+            }
+            
+            #save_button   { top: 10px; }
+            
+            #return_default_values {
+                position: absolute;
+                
+                left: 256px;
+                top:  284px;
+            }
+            
+            #return_default_values:hover {
+                cursor: pointer;
+            }
+        </style>
+        
+        <script src='../js/constants.js'></script>
+        <script src='./options.js'></script>
+    </head>
+    
+    <body>
+        <h2>Configuration</h2>
+        
+        <!-- Default editor -->
+        <label for='default_editor'>Use by default:</label>
+        <input id='default_editor' type='checkbox' class='options_input_el' style='top: 54px;'></input>
+        <br>
+        <!-- Default theme -->
+        <label for='default_theme'>Default theme:</label>
+        <select id='default_theme' class='options_input_el' style='top: 77px;'></select>
+        <br>
+        <!-- Default language -->
+        <label for='default_lng'>Default language:</label>
+        <select id='default_lng' class='options_input_el' style='top: 100px;'></select>
+        <br>
+        <!-- Default font -->
+        <label for='default_font'>Default font:</label>
+        <select id='default_font' class='options_input_el' style='top: 123px;'></select>
+        <br>
+        <!-- Default size -->
+        <label for='default_font_size'>Default size:</label>
+        <select id='default_font_size' class='options_input_el' style='top: 146px;'></select>
+        <br>
+        <!-- Default height -->
+        <label for='default_height'>Default height:</label>
+        <input type='text' id='default_height' class='options_input_el' style='width: 60px; top: 169px;'></input>
+        <br>
+        <!-- Autoresize -->
+        <label for='autoresize'>Autoresize:</label>
+        <input type='checkbox' id='autoresize' class='options_input_el' style='top: 194px;'></input>
+        <br><br>
+
+        <!-- Autoresize -->
+        <label for='load_lng'>Load paste language:</label>
+        <input type='checkbox' id='load_lng' class='options_input_el' style='top: 239px;'></input>
+        <br>
+        
+        <!-- Default tab converting -->
+        <label for='tab_conv'>Tabs->spaces:</label>
+        <input id='tab_conv' class='options_input_el' type='checkbox'></input>
+        <br>
+        <!-- Default tab indentation -->
+        <label for='tab_width'>Tab width:</label>
+        <input id='tab_width' class='options_input_el' type='text' style='width: 60px;'></input>
+        
+        <button id='save_button'>Save</button>
+        
+        <span id='return_default_values'>Return to default values</span>
+    </body>
+</html>
