@@ -211,8 +211,10 @@ const default_settings =
         font                : 'Monospace',
         font_size           : 13,
         height              : 500,
+        autoresize          : true,
         
-        autoresize  : true,
+        
+        load_lng    : true,
         tab_conv    : true,
         tab_width   : 4
     };

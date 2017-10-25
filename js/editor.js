@@ -16,6 +16,7 @@ const storage = typeof InstallTrigger !== 'undefined'
 
 /* Placeholders**/
 var editor;
+var toggle_editor;
 var lng_sel, theme_sel, font_sel, font_size_sel, util_sel;
 var display_on_load;
 
@@ -34,7 +35,7 @@ window.JSHINT = JSHINT;
 * Takes       : Nothing
 * Returns     : (boolean) - Wether it's on the main page or not
 **********************************************************************/
-function is_main() { return !/https:\/\/pastebin\.com\/[a-zA-Z0-9]/.test(window.location); }
+function is_main() { return (window.location.toString() == 'https://pastebin.com/' || window.location.toString().includes('index')); }
 
 
 /**********************************************************
@@ -430,6 +431,7 @@ function init_elements()
             );
     }
 
+
 /* Highlight selected text button warning */
 $('.i_highlight').on('click', function()
     {
@@ -446,13 +448,15 @@ storage.local.get(default_settings, function(items)
         for(var key in items) { settings[key] = items[key]; }
         
         
+        /************************************
+        * Get page language if it's a paste
+        ************************************/
         settings.lng = is_main()
             ? settings.lng
             : language_detection[ get_pastebin_lng() ] === ''
                 ? 'Text'
                 : language_detection[ get_pastebin_lng() ];
 
-        
         display_on_load = settings.default_editor ? 'inline-block' : 'none';
         
         
@@ -464,6 +468,7 @@ storage.local.get(default_settings, function(items)
         /********************
         * Load placeholders
         ********************/
+        toggle_button = $('#toggle_editor_button');
         lng_sel       = $('#lng_sel');
         theme_sel     = $('#theme_sel');
         font_sel      = $('#font_sel');
@@ -472,6 +477,47 @@ storage.local.get(default_settings, function(items)
         
 
         if(settings.default_editor) { init_editor(); }
+        
+        
+        /*******************************
+        * Load paste language on clone
+        *******************************/
+        if( settings.load_lng && window.location.toString().includes('index') )
+            {
+                var paste = window.location.toString().replace('index/', '');
+                
+                $.get(paste, function(body, status, xhr)
+                    {
+                        if(xhr.readyState == 4 && status == 'success')
+                            {
+                                var lng = $(body).find('.buttonsm')[6]
+                                
+                                if(lng === undefined) { return; }
+                                else { lng = lng.textContent; }
+                                
+                                
+                                if(language_detection[lng] === undefined) { lng = 'Text'; }
+                                else { lng = language_detection[lng]; }
+                                
+                                
+                                /* Attempt to set language on settings.default_editor */
+                                if(settings.default_editor)
+                                    {
+                                        set_language(lng);
+                                        lng_sel.prop( 'selectedIndex', languages.indexOf(lng) );
+                                    }
+                                else
+                                    {
+                                        /* Set language on editor toggle */
+                                        toggle_button.one('click', function()
+                                            {
+                                                lng_sel.prop( 'selectedIndex', languages.indexOf(lng) );
+                                                set_language(lng);
+                                            });
+                                    }
+                            }
+                    });
+            }
 
         
         console.log('Extension loaded.');

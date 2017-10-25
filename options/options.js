@@ -16,6 +16,7 @@ var font_sel;
 var font_size_sel;
 var height;
 var autoresize;
+var load_lng;
 var tab_conv;
 var tab_width;
 
@@ -73,8 +74,9 @@ function init_input(settings)
         height.value           = settings.height;
         autoresize.checked     = settings.autoresize;
         
+        load_lng.checked = settings.load_lng;
         tab_conv.checked = settings.tab_conv;
-        tab_width.value = settings.tab_width;
+        tab_width.value  = settings.tab_width;
     }
 
 
@@ -91,8 +93,9 @@ function save_settings()
                     height         : height.value,
                     autoresize     : autoresize.checked,
                     
-                    tab_conv    : tab_conv.checked,
-                    tab_width  : tab_width.value
+                    load_lng       : load_lng.checked,
+                    tab_conv       : tab_conv.checked,
+                    tab_width      : tab_width.value
                 },
                 
                 function()
@@ -106,6 +109,7 @@ function save_settings()
 
 window.onload = function()
 {
+    /* Load placeholders */
     default_editor          = document.getElementById('default_editor');
     theme_sel               = document.getElementById('default_theme');
     lng_sel                 = document.getElementById('default_lng');
@@ -113,6 +117,8 @@ window.onload = function()
     font_size_sel           = document.getElementById('default_font_size');
     height                  = document.getElementById('default_height');
     autoresize              = document.getElementById('autoresize');
+    
+    load_lng                = document.getElementById('load_lng');
     tab_conv                = document.getElementById('tab_conv');
     tab_width               = document.getElementById('tab_width');
     
@@ -120,7 +126,8 @@ window.onload = function()
     return_default_values   = document.getElementById('return_default_values');
     
     
-    save_button.onclick           = () => save_settings();
+    /* Button events */
+    save_button.onclick           = save_settings;
     return_default_values.onclick = () => init_input(default_settings);
     
     
@@ -128,9 +135,10 @@ window.onload = function()
     if(typeof InstallTrigger !== 'undefined')
         {
             autoresize.style.top            = '194px';
-            tab_conv.style.top              = '217px';
-            tab_width.style.top             = '239px';
-            return_default_values.style.top = '240px';
+            load_lng.style.top              = '217px';
+            tab_conv.style.top              = '240px';
+            tab_width.style.top             = '262px';
+            return_default_values.style.top = '265px';
         }
     
     
